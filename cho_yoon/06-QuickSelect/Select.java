@@ -6,7 +6,7 @@ public class Select{
 	int pivot = a[new Random().nextInt(high+1)];
 
 	if (low - high == 0 && k != low){
-	    return -1;
+	    return a[k];
 	}
 	else{
 	    while (low < high){
