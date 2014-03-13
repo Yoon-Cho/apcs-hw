@@ -1,0 +1,15 @@
+The Jumper Class - Something that can move forward two cells in each move. It "jumps" over rocks and flowers. It does not leave anything behind it when it jumps.
+
+1a.The jumper could just move one cell forward.
+b.The jumper could be removed.
+c.Move one cell forward.
+d.Destroy the actor.
+e.Destroy it.
+f.Jumper is king.
+
+2a.The jumper should extend actor because besides the idea of movement, it doesn't share anything with bug.
+b.The Jumper should take movement ideas from the Bug class.
+c.Shape color etc.
+d.The Jumper overrides the act().
+e.The movement and turning methods from the Bug class.
+f.Put the jumper in many situations including different kinds of actors and grids.

@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Person implements Comparable<Person>, Comparator<Person>{
+
+    protected String name;
+    protected int age;
+    
+    public Person(){
+	name = "Bob";
+	age = (int)(Math.Random() * 100);
+    }
+
+    public Person(String name, int age){
+	this.name = name;
+	this.age = age;
+    }
+
+    public int compareTo(Person other){
+	for(int x = 0;x < this.name.length() && x <other.name.length();x++){
+	    if (this.name.charAt(x) < other.name.charAt(x))
+		return -1;
+	    if (this.name.charAt(x) > other.name.charAt(x))
+		return 1;
+	}
+	return 0;
+    }
+
+    public int compare(Person here, Person other){
+	return here.age - other.age;
+    }
+
+}

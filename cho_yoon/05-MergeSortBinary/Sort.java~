@@ -1,0 +1,52 @@
+public class Sort extends Comparable<E>{
+
+    public ArrayList<E> mergeSort(int[] A){
+	ArrayList<E> answer;
+	if(A.length <= 1){
+	    return A;
+	}else{
+	    ArrayList<E> h1 = new ArrayList<E>(A.length/2); 
+	    ArrayList<E> h2 = new ArrayList<E>(A.length - h1.length);;
+	    System.arraycopy(A,0,h1,0,h1.length);
+	    System.arraycopy(A,h1.length,h2,0,h2.length);
+	    h1 = mergeSort(h1);
+	    h2 = mergeSort(h2);
+	    answer = merge(h1,h2);
+	    return answer; 
+	}
+    }
+
+    public int[] merge(int[] h1, int[] h2){
+	ArrayList<E> answer = new ArrayList<E>(h1.length + h2.length);
+	int x = 0;
+	int y = 0;
+	int z = 0;
+	while (x < h1.length && y < h2.length){
+	    if (h1[x].compareTo(h2[y]) == -1){
+		answer[z] = h1[x];
+		x++;
+	    }else{
+		answer[z] = h2[y];
+		y++;
+	    }
+	    z++;
+	}
+	while (x < h1.length){
+	    answer[z] = h1[x];
+	    x++;
+	    z++;
+	}
+	while (y < h2.length){
+	    answer[z] = h2[y];
+	    y++;
+	    z++;
+	}
+	return answer;
+    }
+
+    public int compareTo(E o){
+	E p = o;
+	return -1;
+    }
+
+}

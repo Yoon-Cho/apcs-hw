@@ -1,0 +1,3 @@
+How to search more efficiently in sorted arrays:
+
+Have a variable x which takes the first letter in a word and finds the closest words which correspond to the given word. For isntance, the word fruit would be near the worst east and the difference between e and f is 1. The minimum would be one and the number would stop at a place where the alphabet is both higher and not the letter. So the word search for fruit would not go beyond the letter f.
