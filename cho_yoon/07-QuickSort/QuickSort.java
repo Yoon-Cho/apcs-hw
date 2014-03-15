@@ -3,29 +3,51 @@ import java.util.*;
 public class QuickSort{
 
     public Integer[] quickSort(Integer[] L){
+
 	if (L.length <= 1)
 	    return L;
+
 	else{
+
+	    //select pivot (randomly from within L)
 	    Random rnd = new Random();
 	    int pivot = new Integer(rnd.nextInt(L.length));
+
+	    //partition the list into lower and upper halves:
+
 	    ArrayList<Integer> lower = new ArrayList<Integer>();
 	    ArrayList<Integer> upper = new ArrayList<Integer>();
-	    for (int a = 0; a < pivot; a++)
-		lower.add(L[a]);
-	    for (int b = pivot; b < L.length; b++)
-		upper.add(L[b]);
-	    Integer[] la = lower.toArray(new Integer[]{});
-	    la = quickSort(la);
-	    Integer[] ua = upper.toArray(new Integer[]{});
-	    ua = quickSort(ua);
-	    Integer[] answer = new Integer[upper.size()+lower.size()];
-	    for (int x = 0; x < lower.size();x++){
-		answer[x] = la[x];
+
+	    for (int a = 0; a < L.length; a++){
+		if (L[a] < pivot)
+		    lower.add(L[a]);
+		else if (L[a] > pivot)
+		    upper.add(L[a]);
 	    }
-	    answer[lower.size()] = pivot;
-	    for (int y = lower.size()+1; y < upper.size()+lower.size(); y++){
-		answer[y] = ua[y-lower.size()-1];
+
+	    Integer[] R1 = lower.toArray(new Integer[]{});
+	    R1 = quickSort(R1);
+
+	    Integer[] R2 = upper.toArray(new Integer[]{});
+	    R2 = quickSort(R2);
+
+	    //combine R1 + pivot + R2 into L
+	    Integer[] answer = new Integer[R1.length+1+R2.length];
+	    int z = 0;
+	    
+	    for (int x = 0; x < R1.length; x++){
+		answer[z] = R1[x];
+		z++;
 	    }
+
+	    answer[z] = pivot;
+	    z++;
+
+	    for (int y = 0; y < R2.length; y++){
+		answer[z] = R2[y];
+		z++;
+	    }
+
 	    return answer;
 	}
     }
