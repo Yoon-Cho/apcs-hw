@@ -11,7 +11,8 @@ public class QuickSort{
 
 	    //select pivot (randomly from within L)
 	    Random rnd = new Random();
-	    int pivot = new Integer(rnd.nextInt(L.length));
+	    int pivotIndex = new Integer(rnd.nextInt(L.length));
+	    int pivot = L[pivotIndex];
 
 	    //partition the list into lower and upper halves:
 
