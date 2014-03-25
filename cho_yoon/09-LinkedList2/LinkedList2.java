@@ -1,23 +1,43 @@
 public class LinkedList2{
 
     private Node head;
+    private Node tail;
 
-    public LinkedList2(String origin){
-	head = new Node(origin);
+    public LinkedList2(){
+	head = new Node();
+	tail = new Node();
+	head.setNext(tail);
     }
 
-    public void add(String d){
-	Node tmp = new Node(d);
-	tmp.setNext(head);
-	head = tmp;
+    public void add(String s){
+	Node n = head;
+	while(n.getNext() != tail){
+	    n = n.getNext();
+	}
+	Node next = new Node(s);
+	next.setNext(n.getNext());
+	n.setNext(next);
+    }
+
+    public void add(int i, String s){
+	Node temp = head;
+	Node n = new Node(s);
+	while (i > 0){
+	    temp = temp.getNext();
+	    i--;
+	    if (temp == tail){
+		i=0;
+	    }
+	}
+	n.setNext(temp.getNext());
+	temp.setNext(n);
+	return;
     }
 
     public String toString(){
-	if (head.getData() == null)
-	    return null;
 	String s = "";
-	Node temp = head;
-	while (temp.getNext() != null){
+	Node temp = head.getNext();
+	while (temp.getNext() != tail){
 	    s = s + temp.getData() + ", ";
 	    temp = temp.getNext();
 	}
@@ -25,26 +45,10 @@ public class LinkedList2{
 	return s;
     }                                                   
 
-    public void add(int i, String s){
-	Node temp = head;
-	Node n = new Node(s);
-	while (i > 1){
-	    if (temp.getNext() != null){
-		temp = temp.getNext();
-		i--;
-	    }
-	    else
-		return;
-	}
-	n.setNext(temp.getNext());
-	temp.setNext(n);
-	return;
-    }
-
     public String get(int i){
 	Node temp = head;
 	while (i > 1){
-	    if (temp.getNext() != null){
+	    if (temp.getNext() != tail){
 		temp = temp.getNext();
 		i--;
 	    }
@@ -55,14 +59,13 @@ public class LinkedList2{
     }
 
     public String set(int i, String s){
-	Node temp = head;
+	Node temp = head.getNext();
 	while (i > 0){
-	    if (temp.getNext() != null){
-		temp = temp.getNext();
-		i--;
+	    temp = temp.getNext();
+	    i--;
+	    if (temp == tail){
+		i=0;
 	    }
-	    else
-		return null;
 	}
 	String t = temp.getData();
 	temp.setData(s);
@@ -72,7 +75,7 @@ public class LinkedList2{
     public String remove(int i){
 	Node temp = head;
 	while (i > 1){
-	    if (temp.getNext() != null){
+	    if (temp.getNext() != tail){
 		temp = temp.getNext();
 		i--;
 	    }
@@ -102,13 +105,11 @@ public class LinkedList2{
 	int answer = 0;
 	if (head.getData() != null)
 	    answer++;
-	while (temp.getNext()!= null){
+	while (temp.getNext()!= tail){
 	    answer++;
 	    temp = temp.getNext();
 	}
-	if (temp.getData() != null)
-	    answer++;
-	return answer;
+      	return answer;
     }
 
 }

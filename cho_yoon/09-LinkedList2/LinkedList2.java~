@@ -1,9 +1,9 @@
-public class MyLinkedList{
+public class LinkedList2{
 
     private Node head;
 
-    public MyLinkedList(){
-	head = null;
+    public LinkedList2(String origin){
+	head = new Node(origin);
     }
 
     public void add(String d){

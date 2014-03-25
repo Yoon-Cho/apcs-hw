@@ -2,7 +2,7 @@ public class Driver{
 
     public static void main(String[] args){
 
-	LinkedList2 L = new LinkedList2("Eight");
+	LinkedList2 L = new LinkedList2();
 
 	L.add("Seven");
 	L.add("Six");
@@ -16,9 +16,9 @@ public class Driver{
 	L.remove(3);
 	System.out.println(L.get(4) + " should be 4");
 	System.out.println("length is: " + L.length());
-	System.out.println(L.find("Seven") + " found 7?");
+	System.out.println(L.find("Seven") + " found Seven?");
 	L.add(1,"Jake");
-	L.set(5,"Not Five anymore");
+	L.set(5,"FifthE");
 
 	System.out.println(L);
     }
