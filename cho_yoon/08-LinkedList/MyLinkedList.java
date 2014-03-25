@@ -1,13 +1,16 @@
-public class MyLinkedList{
+public class MyLinkedList<E> implements Iterator{
 
-    private Node head;
+    private Node<E> head;
 
     public MyLinkedList(){
 	head = null;
     }
 
-    public void add(String d){
-	Node tmp = new Node(d);
+    public Iterator<E> iterator(){
+    }
+
+    public void add(E d){
+	Node<E> tmp = new Node<E>(d);
 	tmp.setNext(head);
 	head = tmp;
     }
@@ -16,9 +19,9 @@ public class MyLinkedList{
 	if (head.getData() == null)
 	    return null;
 	String s = "";
-	Node temp = head;
+	Node<E> temp = head;
 	while (temp.getNext() != null){
-	    s = s + temp.getData() + ", ";
+	    s = s + temp.getData().toString() + ", ";
 	    temp = temp.getNext();
 	}
 	s = s + temp.getData();
@@ -26,8 +29,8 @@ public class MyLinkedList{
     }                                                   
 
     public void add(int i, String s){
-	Node temp = head;
-	Node n = new Node(s);
+	Node<E> temp = head;
+	Node<E> n = new Node<E>(s);
 	while (i > 1){
 	    if (temp.getNext() != null){
 		temp = temp.getNext();
@@ -42,7 +45,7 @@ public class MyLinkedList{
     }
 
     public String get(int i){
-	Node temp = head;
+	Node<E> temp = head;
 	while (i > 1){
 	    if (temp.getNext() != null){
 		temp = temp.getNext();
@@ -55,7 +58,7 @@ public class MyLinkedList{
     }
 
     public String set(int i, String s){
-	Node temp = head;
+	Node<E> temp = head;
 	while (i > 0){
 	    if (temp.getNext() != null){
 		temp = temp.getNext();
@@ -70,7 +73,7 @@ public class MyLinkedList{
     }
 
     public String remove(int i){
-	Node temp = head;
+	Node<E> temp = head;
 	while (i > 1){
 	    if (temp.getNext() != null){
 		temp = temp.getNext();
@@ -85,7 +88,7 @@ public class MyLinkedList{
     }
 
     public int find(String s){
-	Node temp = head;
+	Node<E> temp = head;
        	for(int x = 0;x < length();x++){
 	    if (temp.getData() == s){
 		x++;
@@ -98,7 +101,7 @@ public class MyLinkedList{
     }
 
     public int length(){
-	Node temp = head;
+	Node<E> temp = head;
 	int answer = 0;
 	if (head.getData() != null)
 	    answer++;

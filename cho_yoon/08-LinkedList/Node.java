@@ -1,18 +1,18 @@
-public class Node{
-
-    private String data;
+public class Node<E>{
+    
+    private E data;
     private Node next;
 
-    public Node(String d){
-	data = d;
+    public Node(E d){
+    data = d;
 	next = null;
     }
 
-    public void setData(String d){
+    public void setData(E d){
 	data = d;
     }
 
-    public String getData(){
+    public E getData(){
 	return data;
     }
 
@@ -25,7 +25,7 @@ public class Node{
     }
     
     public String toString(){
-	return data;
+	return data.toString();
     }
 
 }

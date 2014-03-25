@@ -7,9 +7,11 @@ public class LinkedList2{
     }
 
     public void add(String d){
-	Node tmp = new Node(d);
-	tmp.setNext(head);
-	head = tmp;
+	Node temp = head;
+	while(temp.getNext() != null){
+	    temp = temp.getNext();
+	}
+	temp.setNext(new Node(d));
     }
 
     public String toString(){
@@ -28,13 +30,8 @@ public class LinkedList2{
     public void add(int i, String s){
 	Node temp = head;
 	Node n = new Node(s);
-	while (i > 1){
-	    if (temp.getNext() != null){
-		temp = temp.getNext();
-		i--;
-	    }
-	    else
-		return;
+	for(int x = 0; x < i;x++){
+	    temp = temp.getNext();
 	}
 	n.setNext(temp.getNext());
 	temp.setNext(n);
@@ -87,8 +84,7 @@ public class LinkedList2{
     public int find(String s){
 	Node temp = head;
        	for(int x = 0;x < length();x++){
-	    if (temp.getData() == s){
-		x++;
+	    if (temp.getData().equals(s)){
 		return x;
 	    }
 	    else

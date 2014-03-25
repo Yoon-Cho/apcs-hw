@@ -13,14 +13,7 @@ public class LLDriver{
 	L.add("Two");
 	L.add("One");
 	L.add("Zero");
-	System.out.println(L);
-	L.remove(3);
-	System.out.println(L.get(4) + " should be 4");
-	System.out.println("length is: " + L.length());
-	System.out.println(L.find("Seven") + " found 7?");
-	L.add(1,"Jake");
-	L.set(5,"Not Five anymore");
-
-	System.out.println(L);
+	
+	Iterator<MyLinkedList> iter = L.Iterator();
     }
 }

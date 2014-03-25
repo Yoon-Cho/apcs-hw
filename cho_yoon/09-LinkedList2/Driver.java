@@ -18,7 +18,6 @@ public class Driver{
 	System.out.println("length is: " + L.length());
 	System.out.println(L.find("Seven") + " found 7?");
 	L.add(1,"Jake");
-	L.set(5,"Not Five anymore");
 
 	System.out.println(L);
     }
