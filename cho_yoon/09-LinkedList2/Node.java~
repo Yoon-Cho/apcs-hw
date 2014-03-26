@@ -3,11 +3,6 @@ public class Node{
     private String data;
     private Node next;
 
-    public Node(){
-	data = null;
-	next = null;
-    }
-
     public Node(String d){
 	data = d;
 	next = null;

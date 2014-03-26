@@ -2,7 +2,7 @@ public class Driver{
 
     public static void main(String[] args){
 
-	MyLinkedList L = new MyLinkedList("Eight");
+	LinkedList2 L = new LinkedList2("Eight");
 
 	L.add("Seven");
 	L.add("Six");
