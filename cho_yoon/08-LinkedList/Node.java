@@ -1,10 +1,10 @@
 public class Node<E>{
-    
+        
     private E data;
-    private Node next;
+    private Node<E> next;
 
     public Node(E d){
-    data = d;
+	data = d;
 	next = null;
     }
 
@@ -16,11 +16,11 @@ public class Node<E>{
 	return data;
     }
 
-    public void setNext(Node n){
+    public void setNext(Node<E> n){
 	next = n;
     }
 
-    public Node getNext(){
+    public Node<E> getNext(){
 	return next;
     }
     

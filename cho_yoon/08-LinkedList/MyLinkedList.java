@@ -1,4 +1,6 @@
-public class MyLinkedList<E> implements Iterator{
+import java.util.*;
+
+public class MyLinkedList<E> implements Iterable<E>{
 
     private Node<E> head;
 
@@ -7,12 +9,32 @@ public class MyLinkedList<E> implements Iterator{
     }
 
     public Iterator<E> iterator(){
+	return this.iterator();
+    }
+
+    public class iterator implements Iterator{
+
+	private int currentIndex = 0;
+
+	public boolean hasNext(){
+	    return currentIndex < length();
+	}
+
+	public E next(){
+	    currentIndex++;
+	    return get(currentIndex-1);
+	}
+
+	public void remove(){
+	    MyLinkedList<E> x = new MyLinkedList<E>();
+	    x.remove(currentIndex);
+	}
     }
 
     public void add(E d){
-	Node<E> tmp = new Node<E>(d);
-	tmp.setNext(head);
-	head = tmp;
+	Node<E> temp = new Node<E>(d);
+	temp.setNext(head);
+	head = temp;
     }
 
     public String toString(){
@@ -28,7 +50,7 @@ public class MyLinkedList<E> implements Iterator{
 	return s;
     }                                                   
 
-    public void add(int i, String s){
+    public void add(int i, E s){
 	Node<E> temp = head;
 	Node<E> n = new Node<E>(s);
 	while (i > 1){
@@ -44,7 +66,7 @@ public class MyLinkedList<E> implements Iterator{
 	return;
     }
 
-    public String get(int i){
+    public E get(int i){
 	Node<E> temp = head;
 	while (i > 1){
 	    if (temp.getNext() != null){
@@ -57,7 +79,7 @@ public class MyLinkedList<E> implements Iterator{
 	return temp.getData();
     }
 
-    public String set(int i, String s){
+    public E set(int i, E s){
 	Node<E> temp = head;
 	while (i > 0){
 	    if (temp.getNext() != null){
@@ -67,12 +89,12 @@ public class MyLinkedList<E> implements Iterator{
 	    else
 		return null;
 	}
-	String t = temp.getData();
+        E t = temp.getData();
 	temp.setData(s);
 	return t;
     }
 
-    public String remove(int i){
+    public E remove(int i){
 	Node<E> temp = head;
 	while (i > 1){
 	    if (temp.getNext() != null){
@@ -82,7 +104,7 @@ public class MyLinkedList<E> implements Iterator{
 	    else
 		return null;
 	}
-	String t = temp.getNext().getData();
+	E t = temp.getNext().getData();
 	temp.setNext(temp.getNext().getNext());
 	return t;
     }

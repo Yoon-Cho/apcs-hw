@@ -14,6 +14,6 @@ public class LLDriver{
 	L.add("One");
 	L.add("Zero");
 	
-	Iterator<MyLinkedList> iter = L.Iterator();
+	Iterator<Node> iter = L.Iterator();
     }
 }
