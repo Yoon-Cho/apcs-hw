@@ -9,10 +9,11 @@ public class MyLinkedList<E> implements Iterable<E>{
     }
 
     public Iterator<E> iterator(){
-	return this.iterator();
+	Iterator<E> n =  new LinkedIterator();
+	return n;
     }
 
-    public class iterator implements Iterator{
+    public class LinkedIterator implements Iterator{
 
 	private int currentIndex = 0;
 
@@ -134,6 +135,27 @@ public class MyLinkedList<E> implements Iterable<E>{
 	if (temp.getData() != null)
 	    answer++;
 	return answer;
+    }
+
+    public static void main(String[] args){
+
+	MyLinkedList<String> L = new MyLinkedList<String>();
+
+	L.add("Eight");
+	L.add("Seven");
+	L.add("Six");
+	L.add("Five");
+	L.add("Four");
+	L.add("Three");  
+	L.add("Two");
+	L.add("One");
+	L.add("Zero");
+
+	Iterator m = L.iterator();
+	
+	while(m.hasNext()){
+	    System.out.println(m.next());
+	}
     }
 
 }

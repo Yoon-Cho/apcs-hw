@@ -1,8 +1,10 @@
-public class LLDriver{
+import java.util.*;
+
+public class LLDriver implements Iterator{
 
     public static void main(String[] args){
 
-	MyLinkedList L = new MyLinkedList();
+	MyLinkedList<String> L = new MyLinkedList<String>();
 
 	L.add("Eight");
 	L.add("Seven");
@@ -13,7 +15,11 @@ public class LLDriver{
 	L.add("Two");
 	L.add("One");
 	L.add("Zero");
+
+	Iterator m = L.iterator();
 	
-	Iterator<Node> iter = L.Iterator();
+	while(m.hasNext()){
+	    System.out.println(m.next());
+	}
     }
 }
