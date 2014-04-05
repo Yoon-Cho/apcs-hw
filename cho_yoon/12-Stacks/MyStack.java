@@ -1,43 +1,53 @@
 public class MyStack{
 
-    private Node top;
+    private int top;
+    private String[] list;
 
-    //contructor 1
     public MyStack(){
-	top = null;
+	list = new String[10];
+	top = -1;
     }
 
-    //push 2
+    public void extend(){
+	if (top>list.length){
+	    String[] tmp = new String[list.length+1];
+	    System.arraycopy(list,0,tmp,0,list.length);
+	    list = tmp;
+	}
+    }
+
     public void push(String s){
-	Node n = new Node(s);
-	n.setNext(top);
-	top = n;
+	extend();
+       	top++;
+	list[top] = s;
     }
 
-    //pop
     public String pop(){
-	String ret = tmp.getData();
-	top = top.getNext();
-	return ret;
+	String ans = list[top];
+	list[top] = null;
+	top--;
+	return ans;
+    };
+
+
+    public int size(){
+	return top+1;
     }
 
-    //peek
+    public String peek(){
+	return list[top];
+    }
 
     public boolean isEmpty(){
-	return (top==null);
+	return top==-1;
     }
 
-    //toString 3
     public String toString(){
 	String s = "";
-	Node tmp = top;
-	while(tmp!=null){
-	s = s + tmp.getData()+" ";
-	tmp = tmp.getNext();
+	for (int x = top; x > 0;x++){
+	    s = s + list[top] + ", ";
 	}
-	return s.substring(-,s.length()-2);
+	return s.substring(0,s.length()-2);
     }
-    
-
 
 }

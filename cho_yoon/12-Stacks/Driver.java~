@@ -5,8 +5,6 @@ public class Driver{
 	n.push("one");
 	n.push("two");
 	n.push("three");
-
-	System.out.println(n.peek());
     }
 
 }

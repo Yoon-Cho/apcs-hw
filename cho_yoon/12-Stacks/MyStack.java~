@@ -15,10 +15,17 @@ public class MyStack{
     }
 
     //pop
+    public String pop(){
+	String ret = tmp.getData();
+	top = top.getNext();
+	return ret;
+    }
 
     //peek
 
-    //isEmpty
+    public boolean isEmpty(){
+	return (top==null);
+    }
 
     //toString 3
     public String toString(){
@@ -28,7 +35,7 @@ public class MyStack{
 	s = s + tmp.getData()+" ";
 	tmp = tmp.getNext();
 	}
-	return s,substring(-,s.length()-2);
+	return s.substring(-,s.length()-2);
     }
     
 
