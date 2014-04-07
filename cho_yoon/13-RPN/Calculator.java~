@@ -1,0 +1,14 @@
+public class Calculator{
+
+    /*
+      read a string
+      if it's an operator
+      -pop the appropriate number of items
+      -do the equation
+      -push the answer
+      else
+      -push the number
+    */
+
+
+}
