@@ -1,14 +1,77 @@
+import java.util.Scanner;
+
 public class Calculator{
 
     public static void main(String[] args){
-	if (args[0] == null)
-	    return;
-	else{
-	    MyStack stack = new Mystack();
-	    String line = args[0];
-	    while (stack.isEmpty() == false){
-		for (int x = 0; x < line.length(); x++){
+	MyStack stack = new MyStack();
+	Scanner scan = new Scanner(System.in);
+	int first = 0;
+	int second = 0;
+	int input = 0;
 
+	System.out.println("Input numbers and basic operations (+,-,/,*)");
+
+	while (true){
+	    if (scan.hasNextInt()){
+		stack.push(scan.nextInt());
+		System.out.println("Correct input");
+	    }
+	    else if (scan.hasNext()){
+		
+		if (scan.next() == "+"){
+		    if (stack.size() < 2){
+			System.out.println("Not enough numbers");
+			break;
+		    }
+		    else{
+			first = stack.pop();
+			second = stack.pop();
+			input = first+second;
+			stack.push(input);
+			System.out.println(""+first+" + "+second+" equals "+input);
+		    }
+		}
+		else if (scan.next() == "-"){
+		    if (stack.size() < 2){
+			System.out.println("Not enough numbers");
+			break;
+		    }
+		    else{
+			first = stack.pop();
+			second = stack.pop();
+			input = first-second;
+			stack.push(input);
+			System.out.println(""+first+" - "+second+" equals "+input);
+		    }
+		}
+		else if (scan.next() == "*"){
+		    if (stack.size() < 2){
+			System.out.println("Not enough numbers");
+			break;
+		    }
+		    else{
+			first = stack.pop();
+			second = stack.pop();
+			input = first*second;
+			stack.push(input);
+			System.out.println(""+first+" * "+second+" equals "+input);
+		    }
+		}
+		else if (scan.next() == "/"){
+		    if (stack.size() < 2){
+			System.out.println("Not enough numbers");
+			break;
+		    }
+		    else{
+			first = stack.pop();
+			second = stack.pop();
+			input = first/second;
+			stack.push(input);
+			System.out.println(""+first+" / "+second+" equals "+input);
+		    }
+		}
+		else{
+		    System.out.println("Please input something correct");
 		}
 	    }
 	}

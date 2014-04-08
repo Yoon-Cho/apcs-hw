@@ -1,30 +1,30 @@
 public class MyStack{
 
     private int top;
-    private int[] list;
+    private String[] list;
 
     public MyStack(){
-	list = new int[10];
+	list = new String[10];
 	top = -1;
     }
 
     public void extend(){
-	if (top>list.length-2){
-	    int[] tmp = new int[list.length+1];
+	if (top>list.length){
+	    String[] tmp = new String[list.length+1];
 	    System.arraycopy(list,0,tmp,0,list.length);
 	    list = tmp;
 	}
     }
 
-    public void push(int s){
+    public void push(String s){
 	extend();
        	top++;
 	list[top] = s;
     }
 
-    public int pop(){
-	int ans = list[top];
-	list[top] = 0;
+    public String pop(){
+	String ans = list[top];
+	list[top] = null;
 	top--;
 	return ans;
     };
@@ -34,7 +34,7 @@ public class MyStack{
 	return top+1;
     }
 
-    public int peek(){
+    public String peek(){
 	return list[top];
     }
 
