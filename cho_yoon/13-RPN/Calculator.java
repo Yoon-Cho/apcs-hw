@@ -16,9 +16,10 @@ public class Calculator{
 		stack.push(scan.nextInt());
 		System.out.println("Correct input");
 	    }
-	    else if (scan.hasNext()){
-		
-		if (scan.next() == "+"){
+	    else if (scan.hasNextLine()){
+		String data = scan.nextLine();
+		data.replaceAll("\\s+","");	
+		if (data == "+"){
 		    if (stack.size() < 2){
 			System.out.println("Not enough numbers");
 			break;
@@ -31,7 +32,7 @@ public class Calculator{
 			System.out.println(""+first+" + "+second+" equals "+input);
 		    }
 		}
-		else if (scan.next() == "-"){
+		else if (data == "-"){
 		    if (stack.size() < 2){
 			System.out.println("Not enough numbers");
 			break;
@@ -44,7 +45,7 @@ public class Calculator{
 			System.out.println(""+first+" - "+second+" equals "+input);
 		    }
 		}
-		else if (scan.next() == "*"){
+		else if (data == "*"){
 		    if (stack.size() < 2){
 			System.out.println("Not enough numbers");
 			break;
@@ -57,7 +58,7 @@ public class Calculator{
 			System.out.println(""+first+" * "+second+" equals "+input);
 		    }
 		}
-		else if (scan.next() == "/"){
+		else if (data == "/"){
 		    if (stack.size() < 2){
 			System.out.println("Not enough numbers");
 			break;
@@ -71,6 +72,7 @@ public class Calculator{
 		    }
 		}
 		else{
+		    System.out.println(data);
 		    System.out.println("Please input something correct");
 		}
 	    }
