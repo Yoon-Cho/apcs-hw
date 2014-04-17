@@ -1,0 +1,29 @@
+import info.gridworld.actor.Bug;
+
+public class DancingBug extends Bug
+{
+
+    private int[] turns;
+
+    public DancingBug(int[] array)
+    {
+	turns = array;
+    }
+
+    public void act()
+    {
+	for (int x = 0; x < turn.length;x++){
+	    if (x = (turn.length - 1))
+		x = 0;
+	    if (canMove()){
+		move();
+	    }
+	    else{
+		for (int y = 0; y < (turns[x] % 8); y++){
+		    turn();
+		}
+		x++;
+	    }
+	}
+    }
+}   
