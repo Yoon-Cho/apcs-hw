@@ -1,0 +1,7 @@
+public class BinaryHeap{
+
+    //1. the root will always be greater than its children
+    //2. the tree is as full as possible from left to right
+    //3. does not use "left" and "right"
+
+}
