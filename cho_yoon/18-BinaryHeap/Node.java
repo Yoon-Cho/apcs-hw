@@ -1,6 +1,7 @@
 public class Node{
 
     protected int data;
+    protected int floor;
     protected Node left, right;
 
     public Node(){
@@ -9,8 +10,9 @@ public class Node{
 	right = null;
     }
 
-    public Node(int i){
+    public Node(int i, int f){
 	data = i;
+	floor = f;
 	left = null;
 	right = null;
     }
@@ -37,6 +39,14 @@ public class Node{
 
     public Node getRight(){
 	return right;
+    }
+
+    public int getFloor(){
+	return floor;
+    }
+
+    public void setFloor(int f){
+	floor = f;
     }
 
     public String toString(){
