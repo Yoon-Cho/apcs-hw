@@ -1,0 +1,1 @@
+I worked on the BinaryHeap file for a little bit but I could not think straight so I ended up reading parts of my AP US History study book.
