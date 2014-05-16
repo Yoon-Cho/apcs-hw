@@ -1,0 +1,8 @@
+public interface ClassWork{
+
+    public void add(int x){}
+    public int findMedian(){}
+    public int removeMedian(){}
+
+
+}
