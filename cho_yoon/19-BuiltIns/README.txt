@@ -10,15 +10,23 @@ A Hash is not necessarily ordered. They have 'ordering' but not specific numeric
 
 
 Question 2:How are they implemented internally 
+
 Treemaps and Hashmaps implements Map which maps unique keys.
 Hashes use the Array interface which repeatedly adds keys.
+
 
 Question 3:Speed Comparison between HashMap vs Treemap
 
 Hashmap is much faster as it is more simplified than TreeMap but TreeMap is better when order of keys is important.
 
+In a test, hashmap took 1 milliseconds to compile, treemap took 1.4 milliseconds.
+
+
 Question 4:Does Java have a built in heap
+
 Java has PriorityQueue which functions as a heap
+
 
 Question 5:Implement a running medium using it.
 
+ClassWork.java

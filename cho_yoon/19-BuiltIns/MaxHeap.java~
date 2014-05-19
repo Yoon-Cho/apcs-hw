@@ -1,0 +1,54 @@
+import java.util.*;
+
+public class MaxHeap{
+
+    private int[] data;
+    private int size;
+
+    public MaxHeap(){
+	size = 0;
+    }
+
+    public void add(int x){
+	data[size] = x;
+	size++;
+	int temp;
+	while (data[temp] > data[temp/2]){
+	    swap(temp,temp/2);
+	    temp = temp/2;
+	}
+    }
+
+    public void swap(int[] data,int pos1,int pos2){
+	int temp = data[pos1];
+	data[pos1] = data[pos2];
+	data[pos2] = temp;
+    }
+
+    public int remove(int x){
+	return 0;
+    }
+
+    public int findMedian(){
+	int[] sorted = Arrays.sort(data);
+	if (sorted.length%2 == 0)
+	    return sorted(sorted.length/2)+sorted(sorted.length/2-1);
+	if (sorted.length%2 == 1)
+	    return sorted(sorted.length/2);
+    }
+   
+    public int removeMedian(int x){
+	int answer = 0;
+	if (sorted.length%2 == 0){
+	    answer = sorted(sorted.length/2)+sorted(sorted.length/2-1);
+	    remove(sorted.length/2);
+	    remove(sorted.length/2);
+	    return answer;
+	}else if (sorted.length%2 == 1){
+	    answer = sorted(sorted.length/2);
+	    remove(sorted.length/2);
+	    return answer;
+	}
+    }
+
+}
